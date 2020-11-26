@@ -1,6 +1,6 @@
 import React, { Component} from 'react';
 import * as Mui from "@material-ui/core";
-class Comments extends Component  {
+class Photos extends Component  {
   constructor(props) {
     super(props);
     this.state = {
@@ -8,18 +8,16 @@ class Comments extends Component  {
     };
   }
   componentDidMount() {
-    const apiUrl = 'https://jsonfy.com/comments';
+    const apiUrl = 'https://jsonfy.com/photos';
     fetch(apiUrl)
     .then((response) => response.json())
     .then(( data) => this.setState({data: data}));
   }
   render() {
     const { data } = this.state;
-
     return(
         <div style={{ backgroundImage:"url(https://data.whicdn.com/images/235380430/original.gif)", backgroundSize:"cover"} }>
           <center>
-         
           <nav>
                     <Mui.AppBar>
                         <Mui.Toolbar>
@@ -41,26 +39,25 @@ class Comments extends Component  {
                     </Mui.Toolbar>
                     </Mui.AppBar>
                     </nav>
-          <h1>DATA COMMENTS</h1>
+   
+ 
+          <h1>DATA PHOTOS</h1>
           <hr/>
-          <table border="3">
+          <table>
             <tr>
               <td>ID</td>   
-              <td>USE COM FK</td>
-              <td>POS COM FK</td>
-              <td>COMMENT</td>
-              <td>DATE ADD</td>
-              <td>DATE UPD</td>
+              <td>ALB PHO FK</td>
+              <td>CAPTION</td>
+              <td>URL</td>
+              <td>THUMBNAIL URL</td>
             </tr>
             {data.map(todo =>
               <tr key={todo.id}>
                 <td>{todo.id}</td>
-                <td>{todo.use_com_fk}</td>
-                <td>{todo.pos_com_fk}</td>
-                <td>{todo.comment}</td>
-                <td>{todo.date_add}</td>
-                <td>{todo.date_upd}</td>
-                
+                <td>{todo.alb_pho_fk}</td>
+                <td>{todo.caption}</td>
+                <td>{todo.url}</td>
+                <td>{todo.thumbnail_url}</td>   
               </tr>
               )}
           </table>
@@ -71,4 +68,4 @@ class Comments extends Component  {
   }
 } 
 
-export default Comments;
+export default Photos;

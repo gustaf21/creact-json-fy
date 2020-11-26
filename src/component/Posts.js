@@ -15,45 +15,35 @@ class Posts extends Component  {
     .then((response) => response.json())
     .then(( data) => this.setState({data: data}));
   }
-
   render() {
     const { data } = this.state;
 
     return(
-        <div>
+        <div style={{ backgroundImage:"url(https://data.whicdn.com/images/235380430/original.gif)", backgroundSize:"cover"} } >
+
           <center>
-          <nav class="nav-extended blue darken-1">
-    <div class="nav-wrapper">
-      <a href="#" class="brand-logo" align="center">DATA</a>
-      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-      <li><a href="https://www.tiktok.com/id/" class="sidebar-navigation-link crayons-link crayons-link--block">TIK TOK</a></li>
-      <li><a href="https://www.pubg.com/en-us/" class="sidebar-navigation-link crayons-link crayons-link--block">PUBG MOBILE</a></li>
-        <li><a href="https://ff.garena.com/" class="sidebar-navigation-link crayons-link crayons-link--block">FREE FIRE</a></li>
-        <li><a href="https://m.mobilelegends.com/en" class="sidebar-navigation-link crayons-link crayons-link--block">MOBILE LEGEND</a></li>
+          <nav>
+                    <Mui.AppBar>
+                        <Mui.Toolbar>
+                        <a href="#!" class="brand-logo right">Data Json Users</a>
+                            <Mui.Typography>
+                    <div class="nav-wrapper">
+                    <ul class="left hide-on-med-and-down">
+                        <li><a href="/Users">Users</a></li>
+                        <li><a href="/Coment">Comments</a></li>
+                        <li><a href="/Posts">Posts</a></li>
+                        <li><a href="/Albums">Albums</a></li>
+                        <li><a href="/Photos">Photos</a></li>
+                        <li><a href="/Categories">Categories</a></li>
+                        <li><a href="/Brands">Brands</a></li>
+                        <li><a href="/Items">Items</a></li>
+                    </ul>
+                    </div>
+                    </Mui.Typography>
+                    </Mui.Toolbar>
+                    </Mui.AppBar>
+                    </nav>
         
-      </ul>
-    </div>
-    </nav>
-    <Mui.Button variant="contained" color="primary">
-  <a href="/Users"><font color="white">USERS</font></a>
-  </Mui.Button>
-  &nbsp;&nbsp;
-  <Mui.Button variant="contained" color="primary">
-  <a href="/Posts"><font color="white">POSTS</font></a>
-  </Mui.Button>
-  &nbsp;&nbsp;
-  <Mui.Button variant="contained" color="primary">
-  <a href="/Coment"><font color="white">COMMENTS</font></a>
-
-</Mui.Button>
- 
-
- 
-
-      
-        
-            
           <h1>DATA POSTS</h1>
           <hr/>
           <table border="1">

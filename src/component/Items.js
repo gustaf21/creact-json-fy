@@ -1,6 +1,6 @@
 import React, { Component} from 'react';
 import * as Mui from "@material-ui/core";
-class Comments extends Component  {
+class Items extends Component  {
   constructor(props) {
     super(props);
     this.state = {
@@ -8,14 +8,13 @@ class Comments extends Component  {
     };
   }
   componentDidMount() {
-    const apiUrl = 'https://jsonfy.com/comments';
+    const apiUrl = 'https://jsonfy.com/items';
     fetch(apiUrl)
     .then((response) => response.json())
     .then(( data) => this.setState({data: data}));
   }
   render() {
     const { data } = this.state;
-
     return(
         <div style={{ backgroundImage:"url(https://data.whicdn.com/images/235380430/original.gif)", backgroundSize:"cover"} }>
           <center>
@@ -40,27 +39,40 @@ class Comments extends Component  {
                     </Mui.Typography>
                     </Mui.Toolbar>
                     </Mui.AppBar>
-                    </nav>
-          <h1>DATA COMMENTS</h1>
+                </nav>
+  
+ 
+          <h1>DATA ITEMS</h1>
           <hr/>
           <table border="3">
             <tr>
               <td>ID</td>   
-              <td>USE COM FK</td>
-              <td>POS COM FK</td>
-              <td>COMMENT</td>
+              <td>NAME</td>
+              <td>DESCRIPTION</td>
+              <td>WHOLESALE PRICE</td>
+              <td>PRICE</td>
+              <td>PHOTO URL</td>
+              <td>STOCK</td>
+              <td>SALES</td>
+              <td>ACTIVE</td>
               <td>DATE ADD</td>
               <td>DATE UPD</td>
+              <td>BRA ITE FK</td>
             </tr>
             {data.map(todo =>
               <tr key={todo.id}>
                 <td>{todo.id}</td>
-                <td>{todo.use_com_fk}</td>
-                <td>{todo.pos_com_fk}</td>
-                <td>{todo.comment}</td>
+                <td>{todo.name}</td>
+                <td>{todo.description}</td>
+                <td>{todo.wholesale_price}</td>
+                <td>{todo.price}</td>
+                <td>{todo.photo_url}</td>
+                <td>{todo.stock}</td>
+                <td>{todo.sales}</td>
+                <td>{todo.active}</td>
                 <td>{todo.date_add}</td>
                 <td>{todo.date_upd}</td>
-                
+                <td>{todo.bra_ite_fk}</td>
               </tr>
               )}
           </table>
@@ -71,4 +83,4 @@ class Comments extends Component  {
   }
 } 
 
-export default Comments;
+export default Items;
